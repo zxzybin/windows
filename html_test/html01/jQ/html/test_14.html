@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding: 0;margin: 0}
+        ul{list-style:none ;color: red;}
+        .box li{
+            float: left;
+            font-size: 40px;
+
+        }
+    </style>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            var star_sel = '★',star_none = '☆';
+           $('.star').on('mouseenter','li',function () {
+               $(this).text(star_sel).prevAll().text(star_sel).end().nextAll().text(star_none);
+           }).on('click','li',function () {
+               $(this).addClass('clicked').siblings().removeClass('clicked');
+           }).on('mouseleave',function () {
+               $('.star li').text(star_none);
+               $('.clicked').text(star_sel).prevAll().text(star_sel).end().nextAll().text(star_none);
+           })
+
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ul class="star">
+            <li>☆</li>
+            <li>☆</li>
+            <li>☆</li>
+            <li>☆</li>
+            <li>☆</li>
+        </ul>
+    </div>
+</body>
+</html>

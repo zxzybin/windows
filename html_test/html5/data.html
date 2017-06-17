@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义属性data-</title>
+		<script src="jQ/js/jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<div class="tabs">
+			<ul>
+				<li data-target=".panel-news">新闻</li>
+				<li data-target=".panel-bagua">八卦</li>
+				<li data-target=".panel-sport">体育</li>
+				<li data-target=".panel-caijing">财经</li>
+			</ul>
+			<div class="panels">
+				<div class="panel-news"></div>
+				<div class="panel-bagua"></div>
+				<div class="panel-sport"></div>
+				<div class="panel-caijing"></div>
+			</div>
+		</div>
+		
+		<iframe src="https://www.baidu.com" width="" height=""></iframe>
+	</body>
+</html>
+<script>
+	$(function(){
+		//为了有一个单独作用域,避免污染
+	var $lis = $('.tabs>ul>li');
+	$lis.on('click',function(){
+	var targetSelector = $(this).data('target');
+	alert(targetSelector);
+	var starget = $(targetSelector);
+	});
+	
+	});
+</script>
+
+<!--<script>
+	var data = {
+		01:{
+			'name':'张三',
+			'sex':'男'
+		},
+		02:{
+			'name':'李四',
+			'sex':'男'
+		},
+		03:{
+			'name':'小红',
+			'sex':'女'
+		}
+		
+	}
+	for (var i= 0; i<data.length;i++) {
+		console.log(data[i]);
+	}
+</script>-->
+
+

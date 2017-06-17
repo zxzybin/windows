@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装自己的client</title>
+    <link rel="stylesheet" href="" id="styleCss">
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function client() {
+        if(window.innerWidth != null){ //ie+ 浏览器
+            return{
+                width:window.innerWidth,
+                height:window.innerHeight
+            }
+        }else if(document.compatMode === 'CSS1Compat'){ //标准浏览器
+            return{
+                width:document.documentElement.clientWidth,
+                height:document.documentElement.clientHeight
+            }
+        }
+        return {                            //怪异浏览器
+            width:document.body.clientWidth,
+            height:document.body.clientHeight
+        }
+    }
+//    document.write(client().width);
+
+    window.onresize = function () {
+        var clientWidth = client().width;
+        if(clientWidth  > 960){
+            document.body.style.backgroundColor = 'red';
+        }
+      else  if (clientWidth  < 640){
+            document.body.style.backgroundColor = 'green';
+        }
+        else{
+          document.body.style.backgroundColor = 'blue';
+        }
+    }
+//响应式
+    var styleCss = document.getElementById('styleCss');
+    window.onresize = reSizre; //加扣号立即执行,函数优先级最高
+    function reSizre() {
+        var clientWidth = client().width;
+        if (clientWidth > 980){
+            styleCss.href = '';
+        }
+        else if(clientWidth > 640){
+            styleCss.href  ='css/pad.css';
+        }
+        else (
+            styleCss.href = 'css/mobile.css';
+            )
+    }
+
+</script>

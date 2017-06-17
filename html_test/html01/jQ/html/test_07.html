@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <style>
+        .ad{
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 230px;
+            height: 120px;
+            background: url("../img/ad.jpg") no-repeat;
+        }
+        .h{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px;
+            height: 18px;
+            background: url("../img/h.jpg") no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="ad">
+        <span class="h"></span>
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        $('.ad').slideDown('normal').slideUp('slow').fadeIn(1000).children('span').click(function () {
+            $(this).parent().fadeOut();
+        });
+    });
+</script>

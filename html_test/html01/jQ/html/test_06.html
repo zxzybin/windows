@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <style>
+        *{padding: 0;margin: 0;}
+        img {
+            display: block;border: 0;}
+        ul{
+            list-style: none;
+        }
+        .wrapper{
+            width: 752px ;
+            height: 270px;
+            border: 1px solid #ccc;
+            padding: 10px 0 0 10px;
+            margin: 100px auto;
+            font-family: Arial;
+
+        }
+        .wrapper li{
+            float: left;
+            width: 178px;
+            height: 125px;
+            position: relative;
+            margin: 0 10px 10px 0;
+            overflow: hidden;
+        }
+        .wrapper li div,.wrapper li p{
+            width: 178px;
+            height: 25px;
+            position: absolute;
+            font-size: 14px;
+            text-align: center;
+            line-height: 25px;
+            color: white;
+            left: 0;
+            bottom: -25px;
+            _bottom:-26px;
+            /*bottom: 0;*/
+        }
+        .wrapper li div{
+            background-color: #000;
+        }
+        .wrapper li p{
+            background: url("../img/bg.png") no-repeat 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul>
+            <li><a href="###"><img src="../img/01.JPG" alt=""></a><p>百度一下,你就知道</p></li>
+            <li><a href="###"><img src="../img/02.JPG" alt=""></a><p>百度一下,你就知道</p></li>
+            <li><a href="###"><img src="../img/03.JPG" alt=""></a><p>百度一下,你就知道</p></li>
+            <li><a href="###"><img src="../img/04.JPG" alt=""></a><p>百度一下,你就知道</p></li>
+            <li><a href="###"><img src="../img/05.JPG" alt=""></a><p>百度一下,你就知道</p></li>
+            <li><a href="###"><img src="../img/06.JPG" alt=""></a><p>百度一下,你就知道</p></li>
+            <li><a href="###"><img src="../img/07.JPG" alt=""></a><p>百度一下,你就知道</p></li>
+            <li><a href="###"><img src="../img/08.JPG" alt=""></a><p>百度一下,你就知道</p></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        var div = $('<div></div>'),speed = 388,$p = $('.wrapper p');
+        $p.before(div);
+        $('.wrapper div').fadeTo(0,0.5);
+        $p.each(function (index,ele) {
+            var y = index*25;
+            $(ele).css('background-position','5px -'+y+'px');
+        })
+        $('.wrapper li').hover(function () {
+           $(this).children('div p').stop().animate({'bottom':0},speed);
+        },function () {
+           $(this).children('div p').stop().animate({'bottom':-26},speed);
+        });
+
+    });
+</script>

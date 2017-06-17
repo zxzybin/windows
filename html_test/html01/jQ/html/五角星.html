@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .content li{
+            color: red;
+            list-style: none;
+            font-size: 20px;
+            float: left;
+            letter-spacing: 5px;
+        }
+    </style>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            var wjx_sel = '★';
+            var wjx_none = '☆';
+            $('.content').on('mouseenter','li',function () {
+                //当执行的jq链式编程断掉的时候,如果能把链式接上,此时使用end()
+                $(this).text(wjx_sel)
+                    .prevAll()
+                    .text(wjx_sel)
+                    .end()
+                    .nextAll()
+                    .text(wjx_none);
+
+                //记录一下用户点击的那个五角星
+                //为点击的li添加一个样式类
+            }).on('click','li',function () {
+                $(this).addClass('clicked').siblings().removeClass('clicked');
+
+                //当鼠标离开评分控件的时候,把clicked之前的五角全部变成实心的,后面的变成空心的
+            }).on('mouseleave',function () {
+                $('.content li').text(wjx_none);
+                $('.clicked').text(wjx_sel).prevAll().text(wjx_sel).end().nextAll().text(wjx_none);
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+    <ul class="content">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+<div>
+    sdfhskjhk
+</div>
+</body>
+<script>
+//全局的jq函数扩展方法
+    $.log = function () {
+     console.log(new Date());
+    }
+
+    $.log();
+//扩展一个普通的jq对象的方法
+    $.fn.log = function () {
+        console.log($(this).text());
+    }
+
+    $(function () {
+        $('div').log();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

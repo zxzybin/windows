@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        img{
+            vertical-align: top;
+        }
+        .box{
+            width: 600px;
+            height: 200px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .box li{
+            float: left;
+        }
+        .box ul{
+            position: absolute;
+            width: 400%;
+            left: 0;
+            top:0;
+
+
+        }
+        .clearfix:before,.clearfix:after{
+            content: "";
+            display: table;
+        }
+        .clearfix:after{
+            clear: both;
+        }
+        .clearfix{
+            *zoom: 1; /*兼容IE6/7*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="scroll">
+        <ul>
+            <li><img src="../img/01a.jpg" alt=""></li>
+            <li><img src="../img/02a.jpg" alt=""></li>
+            <li><img src="../img/03a.jpg" alt=""></li>
+            <li><img src="../img/04a.jpg" alt=""></li>
+            <li><img src="../img/01a.jpg" alt=""></li>
+            <li><img src="../img/02a.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        var scroll = document.getElementById('scroll');
+        var ul = scroll.children[0];
+        var num = 0;
+        var timer = null;
+
+        function autoPlay() {
+            num--;
+            num<=-1200 ? num=0 : num;
+            ul.style.left = num + "px";
+        }
+        timer = setInterval(autoPlay,20);
+        scroll.onmouseover = function () {
+         clearInterval(timer);
+        }
+        scroll.onmouseout = function () {
+
+           timer = setInterval(autoPlay,20);
+        }
+    }
+</script>

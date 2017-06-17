@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js添加slider</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            width: 366px;
+            height:360px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .circle{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -50px;
+
+        }
+        .circle span{
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 10px;
+            border-radius: 50%;
+            line-height: 18px;
+            background-color: palegreen;
+            text-align: center;
+            cursor: pointer;
+        }
+        .circle span.current{
+            background-color: palevioletred;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var scroll = document.getElementById('scroll');
+            var circle = document.createElement('div');
+            circle.setAttribute('class','circle');
+            scroll.appendChild(circle);
+            var lis = document.getElementById('ul').getElementsByTagName('li');
+            for(var i = 0; i < lis.length; i++){
+                var newspan = document.createElement('span');
+                newspan.innerHTML = i+1;
+                circle.appendChild(newspan);
+            }
+            var spanChild = circle.children;
+            console.log(spanChild);
+            spanChild[0].setAttribute('class','current');
+        }
+    </script>
+</head>
+<body>
+    <div class="box" id="scroll">
+        <div class="slider" id="ul">
+            <ul>
+                <li><img src="../img/01big.jpg" alt=""></li>
+                <li><img src="../img/02big.jpg" alt=""></li>
+                <li><img src="../img/03big.jpg" alt=""></li>
+                <li><img src="../img/04big.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

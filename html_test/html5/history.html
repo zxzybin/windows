@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>访问历史API</title>
+	</head>
+	<body>
+		<input type="button" value="前进" onclick="qianjin()"/>
+		<input type="button" value="后退" onclick="houtui()"/>
+		<input type="button" value="刷新" onclick="shuaxin()"/>
+		<input type="button" value="新增" onclick="add()"/>
+	</body>
+</html>
+<script>
+	function qianjin(){
+		window.history.forward();
+		
+	}
+	function houtui(){
+		window.history.back();
+	}
+	function shuaxin(){
+		//go函数可以传入一个地址,不传默认是刷新当前地址
+		window.history.go();
+	}
+	function add(){
+		if(window.history && history.pushState){
+			history.pushState('数据','设置历史状态显示的标题,但是浏览器不支持','?demo='+new Date().toLocaleTimeString())
+		}
+	}
+	window.addEventListener('popstate',function(e){
+		console.log(111111+e.state);
+	});
+</script>

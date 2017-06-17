@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新选择器</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+		<script src="../html01/jQ/js/jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="page-header">新选择器</header>
+			<p>这是个段落</p>
+			<ul>
+				<li class="item">item1</li>
+				<li class="item">item2</li>
+				<li class="item">item3</li>
+				<li class="item">item4</li>
+				<li class="item">item5</li>
+				<li class="item">item6</li>
+				<li class="item">item7</li>
+				<li class="item">item8</li>
+				<li class="item">item9</li>
+				<li class="item">item10</li>
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+	(function(){
+//		var item = document.getElementsByClassName('item');
+//		console.log(item);
+
+//var item = document.querySelector('.item'); //获取的是第一个元素
+//console.log(item);
+
+var items = document.querySelectorAll('.item');
+console.log(items);
+for (var i=0; i<items.length;i++) {
+	items[i].addEventListener('click',function(e){
+		console.log(e);
+	});
+}
+//items.addEventListener('click',function(e){
+//	
+//});
+	})();
+	
+var $items = $('.item');
+console.log($items);
+$items.on('click',function(){
+	
+});
+	
+</script>

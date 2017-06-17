@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>清除浮动</title>
+	<style type="text/css">
+		.content{
+			width: 500px;
+			/*height: 300px;*/
+			background-color: pink;
+			/*清除浮动2*/
+			/*overflow: hidden;*/ 
+		}
+		.left{
+			width: 200px;
+			height: 300px;
+			background-color: yellow;
+			float: left;
+		}
+		.right{
+			width: 300px;
+			height: 300px;
+			background-color: green;
+			float: left;
+		}
+		.footer{
+			height: 50px;
+			width: 500px;
+			background-color: black;
+		}
+		/*清除浮动1*/
+		/*.clearfix{ 
+			clear: both;
+		}*/
+		/*清除浮动3*/
+
+		.clearfix:after{
+			content: "";
+			display: block;
+			clear: both;
+			height: 0;
+			line-height: 0;
+			visibility: hidden;
+		}
+		.clearfix{ /*兼容IE浏览器*/
+			zoom:1;
+		}
+	</style>
+</head>
+<body>
+	<div class="content clearfix">
+		<div class="left"></div>
+		<div class="right"></div>
+		<!-- <div class="clearfix"></div> -->
+	</div>
+	<div class="footer"></div>
+</body>
+</html>

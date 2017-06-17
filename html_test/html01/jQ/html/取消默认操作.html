@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.link').on('click',function (e) {
+                e.preventDefault(); //取消默认操作 不在跳转 兼容性比较好
+//                e.stopPropagation();    //阻止事件冒泡
+
+            });
+            $('.box').on('click',function (e) {
+
+                alert('父盒子被点击了'); //点击的是子元素a但是父元素执行了此方法
+                e.stopPropagation();   //阻止事件冒泡,此时点击a标签此方法不会被执行
+            })
+        });
+    </script>
+</head>
+<body>
+<div class="box">
+    <a href="https://www.baidu.com" class="link">啦啦啦</a>
+</div>
+</body>
+</html>

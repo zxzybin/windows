@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<script src="jQ/js/jquery-1.11.1.min.js"></script>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<iframe src="img/gamepic3.jpg" width="" height=""></iframe><!--推荐使用-->
+	<object data="img/gamepic3.jpg" type=""></object><!--载入第三方媒体-->
+	<embed src="img/gamepic3.jpg" type="" /><!--载入媒体-->
+	</body>
+</html>
+<script>
+	window.addEventListener('load',function(){
+		var svgs = document.getElementsByTagName('svg');
+		for (var i = 0; i <svgs.length;i++) {
+//			var src = svgs[i].dataset['src'];
+
+var src = $(svgs[i].dataset('src'));
+			$.get(src,function(data){});
+			var el = data.documentElement;
+			$(document.body.append($(el)));
+			
+		}
+	});
+</script>

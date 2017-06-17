@@ -1,0 +1,252 @@
+@charset "UTF-8";
+.banner604{
+	position: relative;
+	
+}
+.banner604 a{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 604px;
+	width: 100%;
+	background:url(../img/banner2.jpg) no-repeat top center;
+}
+.main{
+	/*height: 800px;*/
+	/*background-color: pink;*/
+	position: relative;
+}
+.slider{
+	margin-left: 220px;
+	width: 730px;
+	height: 453px;
+	background-color: palegreen;
+	margin-top: 12px;
+	float: left;
+	position: relative;
+}
+.circle{
+	position: absolute;
+	left: 50%;
+	margin-left: -66px;
+	bottom: 8px;
+	
+}
+.circle li{
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background-color: #3E3E3E;
+	float: left;
+	text-align: center;
+	line-height: 18px;
+	margin: 0 2px;
+	cursor: pointer;
+	color: white;
+}
+.circle li.current{
+	background-color: #B61B6F;
+}
+.arrow-l, .arrow-r{
+	position: absolute;
+	width: 28px;
+	height: 62px;
+	background-color: rgba(0,0,0,.3);
+	top: 50%;
+	margin-top: -31px;
+	color: #fff;
+	font: 500 18px/62px "宋体";
+	text-align: center;
+}
+.arrow-l {
+	left: 0;
+}
+.arrow-r{
+	right: 0;
+}
+.arrow-l:hover,.arrow-r:hover{
+	background: rgba(0,0,0,.4);
+}
+.news{
+	width: 248px;
+	height: 451px;
+	/*background-color: paleturquoise;*/
+	border: 1px solid #E4E4E4;
+	float: right;
+	margin-top: 12px;
+}
+.jd-news{
+	height: 200px;
+	/*background-color: purple;*/
+	border-bottom: 1px dashed #e4e4e4;
+}
+.jd-news .dt ,.liftservice .dt{
+	height: 43px;
+	border-bottom: 1px dotted #E8E8E7;
+	line-height: 43px;
+}
+.jd-news .dt h3,.liftservice .dt H3{
+	float: left;
+	font: 14px/43px "microsoft yahei";
+	color: #666;
+	padding-left: 15px;
+}
+.jd-news .dt a{
+	float: right;
+	font: 13PX/43PX "宋体";
+	margin-right: 15px;
+}
+.jd-news .dd ul{
+	padding: 8px 0 0 15px;
+}
+.jd-news .dd li{
+	line-height: 28px;
+}
+.jd-news .dd li span{
+	font-weight: 700;
+}
+.liftservice{
+	height: 251px;
+	width:248px;
+	/*background-color: palegoldenrod;*/
+	overflow: hidden;
+	z-index: 10;
+}
+.liftservice ul{
+	width:252px;
+}
+.liftservice ul li{
+	/*background-color: palegreen;*/
+	width:62px;
+	height: 70px;
+	border: 1px solid #e4e4e4;
+	border-top: 0;
+	float: left;
+	margin-left: -1px;
+}
+.liftservice li a{
+	height: 70px;
+	display: block;
+	text-align: center;
+	padding-top: 44px;
+	position: relative;
+}
+.liftservice li i{
+	position: absolute;
+	top:12px;
+	left:18px;
+	width: 25px;
+	height: 25px;
+	background: url("../img/icon_lifeserv.png") no-repeat;
+}
+.lifeservice-icon1 a i{
+	background-position:left top;
+}
+.lifeservice-icon2 a i{
+	background-position:left -25px;
+}
+.lifeservice-icon3 a i{
+	background-position:left -50px;
+}
+.lifeservice-icon4 a i{
+	background-position:left -75px;
+}
+.lifeservice-icon5 a i{
+	background-position:left -100px;
+}
+.lifeservice-icon6 a i{
+	background-position:left -125px;
+}
+.lifeservice-icon7 a i{
+	background-position:left -150px;
+}
+.lifeservice-icon8 a i{
+	background-position:left -175px;
+}
+.lifeservice-icon9 a i{
+	background-position:left -200px;
+}
+.lifeservice-icon10 a i{
+	background-position:left -225px;
+}
+.lifeservice-icon11 a i{
+	background-position:left -250px;
+}
+.lifeservice-icon12 a i{
+	background-position:left -275px;
+}
+.lifeservice-icon1 a i:hover{
+	background-position:right top;
+}
+.lifeservice-icon2 a i:hover{
+	background-position:right -25px;
+}
+.lifeservice-icon3 a i:hover{
+	background-position:right -50px;
+}
+.lifeservice-icon4 a i:hover{
+	background-position:right -75px;
+}
+.lifeservice-icon5 a i:hover{
+	background-position:right -100px;
+}
+.lifeservice-icon6 a i:hover{
+	background-position:right -125px;
+}
+.lifeservice-icon7 a i:hover{
+	background-position:right -150px;
+}
+.lifeservice-icon8 a i:hover{
+	background-position:right -175px;
+}
+.lifeservice-icon9 a i:hover{
+	background-position:right -200px;
+}
+.lifeservice-icon10 a i:hover{
+	background-position:right -225px;
+}
+.lifeservice-icon11 a i:hover{
+	background-position:right -250px;
+}
+.lifeservice-icon12 a i:hover{
+	background-position:right -275px;
+}
+.liftservice .song{
+	background: url("../img/song.png") no-repeat top right;
+}
+.todays{
+	/*background-color: palegreen;*/
+	/*height: 300px;*/
+	position: relative;
+}
+.night{
+	 margin: 10px 0 28px 0;
+ }
+.night-r{
+	width: 1000px;
+	height: 160px;
+	float: right;
+}
+.night-r ul{
+	width: 500%;
+	_width: 400%;
+}
+.night-r li{
+	float: left;
+	margin-right: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

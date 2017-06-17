@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>全屏API</title>
+	</head>
+	<body>
+		<img src="../html01/img/1.jpg" id="img_url"/>
+	</body>
+</html>
+<script>
+	var img = document.querySelector('#img_url');
+	img.addEventListener('click',function(e){
+		if(document.body.webkitRequestFullScreen){
+			//全屏显示
+			document.body.webkitRequestFullScreen();
+		}s
+		else{
+			alert('不支持');
+			e.preventDefault();
+//			document.body.requestFullscreen();
+		}
+//		document.body.requestFullscreen();
+	});
+</script>

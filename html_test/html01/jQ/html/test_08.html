@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <style>
+        *{padding: 0;margin: 0}
+        ul{list-style: none}
+        .wrap{
+            width: 1210px;
+            margin: 100px auto;
+        }
+        .wrap li{
+            width: 200px;
+            height: 240px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        var num = 0;
+        $('.wrap li').each(function (i,ele) {
+            num = i+1;
+            $(ele).css('background','url(../img/'+num+'.jpg)');
+        }).mouseenter(function () {
+            $(this).stop().animate({'width':670},500).siblings('li').stop().animate({'width':100},500);
+        }).mouseleave(function () {
+            $('.wrap li').stop().animate({'width':200},500);
+        });
+    });
+</script>

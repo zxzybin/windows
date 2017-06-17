@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层级轮播图</title>
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <ul class="slide" id="slide">
+        <li><a href="#"><img src="../../img/slidepic1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="../../img/slidepic2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="../../img/slidepic3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="../../img/slidepic4.jpg" alt=""></a></li>
+        <li><a href="#"><img src="../../img/slidepic5.jpg" alt=""></a></li>
+    </ul>
+    <div class="arrow" id="arrow">
+        <a href="javascript:;" class="prev"></a>
+        <a href="javascript:;" class="next"></a>
+    </div>
+</div>
+</body>
+</html>
+<script src="../js/animate.js"></script>
+<script>
+    var wrap = document.getElementById('wrap');
+    var arrow = document.getElementById('arrow');
+    var slider = document.getElementById('slide');
+    var lis = document.getElementsByTagName('li');
+    wrap.onmouseover = function () {
+        animate(arrow,{'opacity':100});
+    }
+    wrap.onmouseout = function () {
+        animate(arrow,{'opacity':0});
+    }
+    var json = [
+        {   //  1
+            width:400,
+            top:20,
+            left:50,
+            opacity:20,
+            z:2
+        },
+        {  // 2
+            width:600,
+            top:70,
+            left:0,
+            opacity:80,
+            z:3
+        },
+        {   // 3
+            width:800,
+            top:100,
+            left:200,
+            opacity:100,
+            z:4
+        },
+        {  // 4
+            width:600,
+            top:70,
+            left:600,
+            opacity:80,
+            z:3
+        },
+        {   //5
+            width:400,
+            top:20,
+            left:750,
+            opacity:20,
+            z:2
+        }
+    ];
+    //函数节流
+    var jieliu = true; //控制函数节流
+    var as = arrow.children;
+    change();
+    for(var k in as){
+        as[k].onclick = function () {
+            if(this.className == 'prev'){
+                if(jieliu){
+                    change(false);
+                    jieliu = false;
+                }
+            }
+            else{
+                if(jieliu){
+                    change(true);
+                    jieliu = false;
+                }
+            }
+        }
+    }
+    function change(flag) {
+
+        if(flag){
+            json.unshift(json.pop()); //删除第一个放到最后一个
+        }
+        else {
+            json.push(json.shift()); //删除最后一个放到第一个
+        }
+       for(var i=0; i < json.length; i++){
+           animate(lis[i],{
+               width:json[i].width,
+               top:json[i].top,
+               left:json[i].left,
+               opacity:json[i].opacity,
+               zIndex:json[i].z
+           },function () { //回调函数,动画执行完毕以后再执行
+                jieliu = true;
+           })
+       }
+    }
+    var timer = null;
+    timer = setInterval(change,2000);
+</script>

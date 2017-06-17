@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换导航栏效果</title>
+    <style>
+        .box{
+            width: 400px;
+            border: 1px solid palegreen;
+        }
+        .bottom div{
+            width: 100%;
+            height: 300px;
+            color: palegoldenrod;
+            background-color: palevioletred;
+            display: none;
+        }
+        .bottom .show{
+            display: block;
+        }
+        .purple{
+            background-color: purple;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btns = document.getElementsByTagName('button');
+            var divs = document.getElementById('divs').getElementsByTagName('div');
+            for(var i=0;i<btns.length;i++){
+                btns[i].index = i;
+                btns[i].onmouseover = function () {
+                    for(var j=0;j<btns.length;j++){
+                        btns[j].className = '';
+                        divs[j].className = '';
+                    }
+                    btns[this.index].className = "purple";
+                    divs[this.index].className = 'show';
+
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+        <button>按钮5</button>
+    </div>
+    <div class="bottom" id="divs">
+        <div class="show">内容1</div>
+        <div>内容2</div>
+        <div>内容3</div>
+        <div>内容4</div>
+        <div>内容5</div>
+    </div>
+</div>
+</body>
+</html>

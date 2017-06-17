@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在一个盒子内的坐标</title>
+    <style>
+        *{margin: 0;padding: 0}
+        .box{
+            width: 500px;
+            height: 500px;
+            background-color: palegreen;
+            margin: 100px;
+            /*position: absolute;*/
+            /*left: 0;*/
+            /*top:0;*/
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script>
+    var box = document.getElementsByClassName('box')[0];
+    box.onmousemove= function (event) {
+        var event = event || window.event;
+        var x = event.clientX - this.offsetLeft;
+        var y = event.clientY - this.offsetTop;
+        box.innerHTML = x + 'px' + y + 'px';
+    }
+</script>

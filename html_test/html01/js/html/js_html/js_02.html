@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作遮罩</title>
+    <style>
+        #mask{
+            width: 100%;
+            height:100%;
+            background: rgba(0,0,0,.5);
+            position: fixed;
+            z-index: 999;
+            display: none;
+        }
+        #box{
+            width: 400px;
+            height:250px;
+            background-color: #fff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -125px 0 0 -200px;
+            z-index:1000;
+            display: none;
+        }
+        #box span{
+            position: absolute;
+            width: 15px;
+            height:15px;
+            right:5px;
+            top: 5px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var login = document.getElementsByClassName('login');
+            var mask = document.getElementById('mask');
+            var box  =document.getElementById('box');
+            login[0].onclick = function () {
+                mask.style.display = 'block';
+                box.style.display = 'block';
+            }
+            var close_all = document.getElementById('close_all');
+            close_all.onclick = function () {
+                mask.style.display = 'none';
+                box.style.display = 'none';
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="login">登录</div>
+<div id="mask"></div>
+<div id="box">
+    <span id="close_all">x</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固定导航条</title>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .top,.nav{
+            width: 1423px;
+            margin: 0 auto;
+        }
+        .main{
+            width: 1000px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="top"><img src="../img/top.png" alt=""></div>
+    <div class="nav"><img src="../img/nav.png" alt=""></div>
+    <div class="main"><img src="../img/main.png" alt=""></div>
+</body>
+</html>
+<script>
+    $(function () {
+        var H = $('.top').height();
+       $(window).scroll(function () {
+           var scrollTop = $(document).scrollTop();
+           if(scrollTop > H){
+               $('.nav').css({'position':'fixed','top':0,'left':116});
+               $('.main').css({'margin-top':106});
+           }else{
+               $('.nav').css('position','static');
+               $('.main').css('margin-top',20);
+           }
+
+       });
+    });
+</script>

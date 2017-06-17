@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>取消冒泡</title>
+    <style>
+        *{padding: 0;margin: 0}
+        body{height: 2000px;}
+        .box{width: 100%;height: 100%;opacity: 0.4;background-color: black;position: fixed;display: none}
+        .show{width: 300px;height: 300px;position: fixed;top: 50%;left: 50%;background-color: #fff;margin: -150px 0 0 -150px;display: none}
+    </style>
+</head>
+<body>
+<a href="##">登录</a>
+<a href="##">注册</a>
+<div class="box"></div>
+<div class="show"></div>
+</body>
+</html>
+<script>
+//    document.write(window.screen.width);
+    var box = document.getElementsByClassName('box')[0];
+    var show = document.getElementsByClassName('show')[0];
+    var login = document.getElementsByTagName('a')[0];
+    login.onclick = function (event) {
+        box.style.display = 'block';
+        show.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        var event = event || window.event;
+        if(event && event.stopPropagation){
+            event.stopPropagation();
+        }
+        else{
+            event.cancelBubble = true;
+        }
+
+    }
+
+    document.onclick = function (event) {
+
+
+        var event = event || window.event;
+       var targetClassName = event.target ? event.target.className:event.srcElement.className; //或者id 兼容ie写法
+        if(targetClassName.className != 'show'){
+            box.style.display = 'none';
+            show.style.display = 'none';
+            document.body.style.overflow = 'visible';
+        }
+    }
+
+</script>

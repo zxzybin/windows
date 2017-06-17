@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,ul,ol,li,img{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img{
+            vertical-align: middle;
+        }
+        #box{
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+            overflow: hidden;
+            position: relative;
+
+        }
+        #ad{
+            width: 490px;
+            height: 170px;
+            overflow: hidden;
+            position: relative;
+        }
+        #box ul {
+            width: 3000px;
+            position: absolute;
+            top:0px;
+            left: 0px;
+        }
+        #box li{
+            float: left;
+            width: 490px;
+            height: 170px;
+        }
+        #box img{
+            width: 490px;
+        }
+        #arr span{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #000;
+            top:50%;
+            margin-top: -20px;
+            line-height: 40px;
+            opacity: 0.3;
+            color: #fff;
+            text-align: center;
+            font:30px/40px '宋体';
+            border: 1px solid #fff;
+            left: 5px;
+        }
+        #arr #right{
+            right: 5px;
+            left: auto;
+        }
+        #arr{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="ad">
+            <ul id="imgs">
+                <li><img src="../images/4.jpg" alt=""></li>
+                <li><img src="../images/2.jpg" alt=""></li>
+                <li><img src="../images/3.jpg" alt=""></li>
+                <li><img src="../images/4.jpg" alt=""></li>
+                <li><img src="../images/5.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div id="arr">
+            <span id="left"><</span>
+            <span id="right">></span>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        function $(id) { return document.getElementById(id)};
+         $('box').onmouseover = function () {
+             $('arr').style.display = 'block';
+
+         }
+         $('box').onmouseout = function () {
+             $('arr').style.display = 'none';
+
+         }
+         var leader = 0; var target = 0;
+        var timer = null;
+        $('left').onclick = function () {
+            target += 490;
+
+        }
+        $('right').onclick = function () {
+            target -= 490;
+        }
+    setInterval(function () {
+            if(target >= 0){
+                target = 0;
+            }
+            else if(target <= -1960){
+                target = -1960;
+            }
+            leader = leader + (target - leader)/10;
+            $('imgs').style.left = leader + 'px';
+        },30)
+
+    }
+</script>

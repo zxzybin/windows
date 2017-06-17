@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Element Class List</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+	</head>
+	<body>
+	    <div class="container">
+	    	<nav class="navbar navbar-default">
+		        <div class="navbar-header">
+		        
+		          <a class="navbar-brand" href="#">Brand</a>
+		        </div>
+		
+		        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-7">
+		          <ul class="nav navbar-nav">
+		            <li class="item red"><a href="#">Home</a></li>
+		            <li class="active"><a href="#">Link</a></li>
+		            <li class="item red"><a href="#">Link</a></li>
+		          </ul>
+		        </div><!-- /.navbar-collapse -->
+			</nav>
+	     </div>
+	</body>
+</html>
+<script>
+	
+//		var lis = document.querySelectorAll('.nav >li');
+//		for (var i=0;i<lis.length;i++) {
+//			var item = lis[i];
+//			item.addEventListener('mouseover',function(e){
+//				for (var i = 0; i < lis.length; i++) {
+//					lis[i].classList.remove('active');
+//				}
+//				
+////				console.log(this.classList);
+//				this.classList.add('active');
+//				e.preventDefault();
+//			});		
+//		}
+		
+		
+		var link = document.querySelector('.navbar-brand');
+		link.addEventListener('click',function(e){
+			var exist = this.classList.contains('active');
+			this.classList.toggle('active',!exist);
+			e.preventDefault();
+		});
+	
+</script>

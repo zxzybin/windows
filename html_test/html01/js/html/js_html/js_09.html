@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            width: 600px;
+            height: auto;
+            border: 1px solid #cccccc;
+            padding: 30px 0;
+            margin: 100px auto;
+        }
+        textarea{
+            width: 450px;
+            height: 200px;
+            line-height: 30px;
+            margin:10px;
+            resize: none;
+            padding-left: 10px;
+        }
+        .box li{
+            width: 450px;
+            line-height: 30px;
+            border-bottom: 1px dashed #ccc;
+            margin-left: 80px;
+        }
+        .box li a{
+            float: right;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementsByTagName('button')[0];
+            var txt = document.getElementsByTagName('textarea')[0];
+            var ul = document.createElement('ul');
+            btn.parentNode.appendChild(ul);
+            btn.onclick = function () {
+                if(txt.value == ''){
+                    return false;
+                }
+                var newli = document.createElement('li');
+                newli.innerHTML = txt.value + '<a href="#">删除</a>';
+                txt.value = '';
+                if(newli.length == 0){
+                    ul.appendChild(newli);
+                }
+                else{
+                    ul.insertBefore(newli,newli[0]);
+                }
+                var as = document.getElementsByTagName('a');
+                for(var i = 0; i < as.length; i ++){
+                    as[i].onclick = function () {
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        微博发布:<textarea></textarea><button>发布</button>
+    </div>
+</body>
+</html>

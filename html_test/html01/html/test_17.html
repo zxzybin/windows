@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取元素非行间样式</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            top:180px;
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script>
+    var box = document.getElementsByClassName('box')[0];
+    var width = getStyle(box,'background');
+    console.log(width);
+    function getStyle(obj,attr) {
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];
+        }
+        else{
+            return window.getComputedStyle(obj,null)[attr];
+        }
+    }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换背景皮肤</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            height: 150px;
+            padding-top: 50px;
+            background: rgba(255,255,255,.1);
+            text-align: center;
+
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var pic1 = document.getElementById('pic1');
+            var pic2 = document.getElementById('pic2');
+            var pic3 = document.getElementById('pic3');
+            pic1.onclick = function () {
+                document.body.style.backgroundImage="url('img/1.jpg')";
+            },
+            pic2.onclick = function () {
+             document.body.style.backgroundImage="url('img/2.jpg')";
+            },
+            pic3.onclick = function () {
+                document.body.style.backgroundImage="url('img/3.jpg')";
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <img src="../../../img/1.jpg" alt="" id="pic1">
+        <img src="../../../img/2.jpg" alt="" id="pic2">
+        <img src="../../../img/3.jpg" alt="" id="pic3">
+    </div>
+</body>
+</html>
