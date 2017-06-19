@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<style>
+			#target{
+				padding: 20px;
+				height: 300px;
+				border: 5px dashed #c0c0cc0;
+				color: #eaeaea;
+				font-size: 40px;
+				line-height: 260px;
+				text-align: center;
+				-webkit-user-select: none;
+				cursor: pointer;
+			}
+			#target.actived{
+				border-color: #888;
+				color: #fafafa;
+				box-shadow: 0 0 80px #e0e0e0 inset;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>Drag&Drop</h1>
+			</div>
+			<div class="jumpbotron">
+				<p>你好啊,你今年几岁啊,哈哈,我的今天在哪里</p>
+				<img src="../html01/img/1.jpg" alt="" />
+			</div>
+			<ul id="file_list" class="list-group"></ul>
+			<div id="target">
+				Drag something into here
+				<!--<img  id="drag_img" alt="" />-->
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	(function(){
+		
+		var target = document.querySelector('#target');
+		var fileList = document.querySelector('#file_list');
+		var dragImg = document.querySelector('#drag_img');
+		
+		//外界元素拖拽到该元素下时触发
+		target.addEventListener('dragenter',function(){
+			this.classList.add('actived');
+		});
+		//dragleave 离开时触发 
+		target.addEventListener('dragleave',function(){
+			this.classList.remove('actived');
+		});
+		//dragover阻止系统默认事件 才能捕获执行drop事件
+		target.addEventListener('dragover',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		});
+		//当元素放到该对象时触发
+		target.addEventListener('drop',function(e){
+//			this.classList.add('actived');
+//短路运算
+//			var data = e.dataTransfer.getData('text/plain') || e.dataTransfer.getData('text/uri-list');
+			
+			
+			if(e.dataTransfer.files.length){
+				var files = e.dataTransfer.files;
+				
+				for (var i = 0; i < files.length; i++) {
+				var li = document.createElement('li');
+				li.setAttribute('class','list-group-item');
+				li.innerHTML = '<h5 class="list-group-item-heading">'+files[i].name+'</h5><p class="list-group-item-text">'+files[i].lastModifiedDate.toLocaleDateString()+''+files[i].lastModifiedDate.toLocaleTimeString()+'&nbsp;&nbsp;'+(files[i].size/1024).toFixed(2)+'KB</p>';
+				fileList.appendChild(li);
+				}
+			}		
+			else{
+				var data = e.dataTransfer.getData('text/plain');
+					if (data) {
+						target.innerHTML = data;
+					}
+					else{
+						var img = document.createElement('img');
+						img.setAttribute('src',e.dataTransfer.getData('text/uri-list'));
+						target.appendChild(img);
+					}	
+			}
+			
+
+
+
+			this.classList.remove('actived');
+			
+			e.preventDefault();
+			e.stopPropagation();
+		});
+		
+	})();
+</script>

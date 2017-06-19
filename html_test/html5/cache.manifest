@@ -1,0 +1,7 @@
+CACHE MANIFEST
+# version 1.0.0
+
+CACHE:
+	//缓存的文件(相对路径)
+NETWORK:		
+	//联网的文件

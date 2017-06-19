@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+	</head>
+	<body>
+		<div id="" class="container">
+			<form action="">
+			<!--直接通过name获取-->
+			
+			<!--document.forms[0].input_file-->
+<!--multiple让文件可以多选-->
+			<input id="input_file" class="form-control hidden" type="file" name="input_file"  multiple="multiple"/>
+			<input id="btn_select" class="btn btn-info" type="button" name="" id="" value="选择本地文件" />
+			<input id="btn_read" class="btn btn-warning" type="button" name="" id="" value="读取文件列表" />
+			<ul id="file_list" class="list-group">
+				<!--<li class="list-group-item">
+					<h5 class="list-group-item-heading">机密文件</h5>
+					<p class="list-group-item-text">....</p>
+				</li>-->
+				<!--<li class="list-group-item">Cras justo odio</li>
+				<li class="list-group-item">Cras justo odio</li>
+				<li class="list-group-item">Cras justo odio</li>
+				<li class="list-group-item">Cras justo odio</li>-->
+			</ul>
+		</form>
+		</div>
+	</body>
+</html>
+<script>
+	(function(){
+		var inputFile = document.querySelector('#input_file');
+		var btnRead = document.querySelector('#btn_read');
+		var fileList = document.querySelector('#file_list');
+		var btnSelect = document.querySelector('#btn_select');
+		btnSelect.addEventListener('click',function(){
+			//在按钮点击的时候调用input的点击
+			inputFile.click();
+		});
+		btnRead.addEventListener('click',function(){
+			var files = inputFile.files;
+			for (var i = 0; i < files.length; i++) {
+				var li = document.createElement('li');
+				li.setAttribute('class','list-group-item');
+				li.innerHTML = '<h5 class="list-group-item-heading">'+files[i].name+'</h5><p class="list-group-item-text">'+files[i].lastModifiedDate.toLocaleDateString()+''+files[i].lastModifiedDate.toLocaleTimeString()+'&nbsp;&nbsp;'+(files[i].size/1024).toFixed(2)+'KB</p>';
+				fileList.appendChild(li);
+			}
+		});
+	})();
+</script>
