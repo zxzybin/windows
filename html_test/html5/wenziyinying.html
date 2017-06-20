@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	section:nth-child(2) span{
+		color: #ccc;
+		font-size: 40px;
+		text-shadow: 2px 2px 8px #000;	/*文字加阴影*/
+	}
+	/*section:nth-of-type(1) span{
+		color: #ccc;
+		font-size: 40px;
+		text-shadow: 2px 2px 8px #000;
+	}*/
+	section:nth-of-type(3) span{
+		display: block;
+		color:red;
+		/*background-color: yellow;*/
+		width:100px;
+		height: 100px;
+		/*word-break: break-all;*/  /*文字自动换行*/
+		word-wrap: break-word;	/*自动换行*/	
+	}
+	section:nth-of-type(3) p{
+		width: 100px;
+		height: 200px;
+		border: 1px solid #ccc;	
+		white-space: pre;
+	}
+	section:nth-of-type(3) .pre{
+		white-space: pre;
+	}
+	section:nth-of-type(3) .pre-wrap{
+		white-space: pre-wrap;
+	}
+	section:nth-of-type(3) .pre-line{
+		white-space: pre-line;
+	}
+	section:nth-of-type(4) p{
+		width: 200px;
+		border: 1px solid #ccc;
+		text-overflow: ellipsis;	/*处理溢出-依赖下边两者*/
+		white-space: nowrap;	/*强制不换行*/
+		overflow: hidden;		/*超出边界隐藏*/
+	}
+
+
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<header>css3-文本</header>
+	<section>
+		<header>文字阴影1</header>
+		<div class="wrap-box">
+			<span>文字阴影1</span>
+			<p>文字阴影1</p>
+		</div>	
+	</section>
+	<section>
+		<header>标题</header>
+		<div class="wrap-box">
+			<span>文字阴影2</span>
+		</div>	
+	</section>
+	<section>
+		<header>文本换行</header>
+		<div class="wrap-box">
+			<span>文字阴影2文字阴影2文字阴影2文字阴影2</span>
+			<p class="box2 white-space pre">
+				我上司的呵呵 我用的是pre
+				数  
+				据库设计空间
+			</p>
+			<p class="box2 white-space pre-wrap">
+				我上司的呵呵 我用的是pre-wrap
+				数  
+				据库设计空间
+			</p>
+			<p class="box2 white-space pre-line">
+				我上司的呵呵 
+					我用的是pre-line
+						数  
+				据库设计空间
+			</p>
+		</div>	
+	</section>
+	<section>
+		<header>文字溢出</header>
+		<div>
+			<p>文字溢出文字溢
+				出文综溢出微博自
+			</p>
+		</div>
+	</section>
+</div>
+</body>
+</html>

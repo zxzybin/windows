@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>document</title>
+	<style type="text/css">
+		div{
+			width:200px;
+			height: 200px;
+			background-color: red;
+			-webkit-transition: all 1s;
+
+		}
+		div:hover{
+			width: 300px;
+			height: 300px;
+
+		}
+		/*相对于父级做参考 "所有"子元素的第一个子元素 并且为之要对应*/
+		dt:first-child{
+			color: red;
+		}
+		/*dd:first-child{
+			color: palegreen;
+		}*/
+		/*相对于父级做参考 "特定类型"的一个子元素*/
+		dd:first-of-type{
+			color: blue;
+		}
+		/*选中第二个dd*/
+		dd:nth-of-type(2){
+			color: palegreen;
+		}
+		/*选中最后一个dd*/
+		dd:last-child{
+			color: pink;
+		}
+		/*相对于父级,只有一个子元素的时候满足条件*/
+		section:nth-of-type(1) li:nth-child(2) span:only-of-type{
+			color: red;
+		}
+		section:nth-of-type(2) span:only-child{
+			color: red;
+		}
+		/*奇数个匹配*/
+		section:nth-of-type(3) li:nth-child(2n-1){
+			color: red;
+		}
+		section:nth-last-of-type(1) li:nth-child(2n) {
+			background-color: red;
+		}
+		/*empty只对空的元素标签起作用*/
+		section:nth-last-of-type(2) p:empty{
+			width: 100px;
+			height: 20px;
+			background-color: blue;
+		}
+
+		/*通过设置锚点控制section样式*/
+		section:target{
+			background-color: yellow;
+		}
+
+		section:last-child p:after{
+			content:'after';
+			color: red;
+
+		}
+		section:last-child p:before{
+			content:'before';
+			color: red;
+
+		}
+		section:nth-child(6) p::selection{
+			background-color: red;
+		}
+		section:nth-child(7) input::-webkit-input-placeholder{
+			color:blue;
+		}
+		/*section:before{
+
+		}*/
+	</style>
+
+</head>
+<body>S
+<div></div>
+	<dl>
+		<dt>aaaaa</dt>
+		<dd>aaaa1</dd>	
+		<dd>aaaa2</dd>	
+		<dd>aaaa3</dd>	
+		<dd>aaaa4</dd>	
+		<dd>aaaa5</dd>	
+		<dd>aaaa6</dd>	
+		<dd>aaaa7</dd>	
+		<dd>aaaa8</dd>	
+		<dd>aaaa9</dd>	
+		<dd>aaaa10</dd>	
+	</dl>
+	<dl>
+		<dt>aaaaa</dt>
+		<dd>aaaa1</dd>	
+		<dd>aaaa2</dd>	
+		<dd>aaaa3</dd>	
+		<dd>aaaa4</dd>	
+		<dd>aaaa5</dd>	
+		<dd>aaaa6</dd>	
+		<dd>aaaa7</dd>	
+		<dd>aaaa8</dd>	
+		<dd>aaaa9</dd>	
+		<dd>aaaa10</dd>	
+	</dl>
+	<dl>
+		<dt>aaaaa</dt>
+		<dd>aaaa1</dd>	
+		<dd>aaaa2</dd>	
+		<dd>aaaa3</dd>	
+		<dd>aaaa4</dd>	
+		<dd>aaaa5</dd>	
+		<dd>aaaa6</dd>	
+		<dd>aaaa7</dd>	
+		<dd>aaaa8</dd>	
+		<dd>aaaa9</dd>	
+		<dd>aaaa10</dd>	
+	</dl>
+	<section id="demo1">
+		<ul>
+			<li><span>li1</span></li>
+			<li><span>li2</span></li>
+			<li>li3</li>
+			<li>li4</li>
+			<li>li5</li>
+			<li>li6</li>
+		</ul>
+	</section>
+	<section id="demo2">
+		<ul>
+			<li>
+				<span>li1</span>
+				<span>li1</span>
+			</li>
+			<li><span>li2</span></li>
+			<li>li3</li>
+			<li>li4</li>
+			<li>li5</li>
+			<li>li6</li>
+		</ul>
+	</section>
+	<section id="demo3">
+		<ul>
+			<li><span>li1</span></li>
+			<li>li2</li>
+			<li>li3</li>
+			<li>li4</li>
+			<li>li5</li>
+			<li>li6</li>
+		</ul>
+	</section>
+	<section>
+		<ul>
+
+			<li><span>li1</span></li>
+			<li>li2</li>
+			<li>li3</li>
+			<li>li4</li>
+			<li>li5
+			<p></p>
+			</li>
+			<li>li6</li>
+		</ul>
+	</section>
+	<section>
+		<ul>
+			<li>1111
+				<p></p>
+			</li>
+			<li>1111</li>
+		</ul>
+	</section>
+	<section>
+		<p>sadsjkdskdkshdkhsjhsjsdhjsgj</p>
+	</section>
+	<section>
+		<input type="" name="" placeholder="我是你的风格的话">
+	</section>
+
+	<a href="#demo1">demo1</a>
+	<a href="#demo2">demo2</a>
+	<a href="#demo3">demo3</a>
+</body>
+</html>
