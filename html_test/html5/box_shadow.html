@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框阴影</title>
+    <style>
+        body,ul,li,dl,dt,dd,h1,h2,h3,h4,h5{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f7f7f7;
+        }
+        .wrapper{
+            width: 972px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            /*background-color: rebeccapurple;*/
+        }
+        header{
+            padding: 20px 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        header h3{
+            line-height: 1;
+            font-weight: normal;
+            font-size: 28px;
+        }
+        /*.main{*/
+        /*overflow: hidden;*/
+        /*}*/
+        .main:after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+        .main .item{
+            width:210px;
+            height: 210px;
+            margin: 0 30px 30px 0;
+            display: flex;
+            position: relative;
+            background-color: #fff;
+            float: left;
+            box-shadow:2px 2px 5px #ccc;
+        }
+        .main .item:after{
+            content: attr(data-brief);
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 210px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #FFF;
+            font-family: "微软雅黑";
+            font-size: 18px;
+            background-color: rgba(170,170,170,0);
+            z-index: -1;
+            -webkit-transition: all 0.3s ease-in;
+        }
+        .main .item:hover:after{
+            background-color: rgba(170,170,170,0.6);
+            z-index: 100;
+        }
+        .main .item:nth-child(4n){
+            margin-right: 0;
+        }
+        .box-shadow{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #DDD;
+            margin: auto;
+        }
+        /*标准写法*/
+        .item:nth-child(1) .box-shadow{
+            box-shadow: 2px 2px 10px #000;
+        }
+        /*水平偏移量 正值向右 负值向左 垂直向上为负值 垂直向下为正值 */
+        .item:nth-child(2) .box-shadow{
+           box-shadow: -2px -2px 5px #000;  /*5px 为模糊度*/
+        }
+        /*上面有阴影*/
+        .item:nth-child(3) .box-shadow{
+            box-shadow: 0 -2px 5px #000;
+        }
+        /*下面有阴影*/
+        .item:nth-child(4) .box-shadow{
+            box-shadow: 0 2px 5px #000;
+        }
+        /*偏移量和模糊度是可以相加计算的 负号只代表方向*/
+        .item:nth-child(5) .box-shadow{
+            box-shadow: -5px -5px 0px #000;
+        }
+        .item:nth-child(6) .box-shadow{
+            box-shadow: 15px 15px 0 #000;
+        }
+        /*偏移量和扩展也是相加的 对比6*/
+        .item:nth-child(7) .box-shadow{
+            box-shadow: 0 0 0 10px #000;
+        }
+        /*第四个参数为扩展 可以叠加 这里的负号不代表方向 直接运算*/
+        .item:nth-child(8) .box-shadow{
+            box-shadow: 20px 20px 0 -10px #000;
+        }
+        /*内阴影*/
+        .item:nth-child(9) .box-shadow{
+            box-shadow:inset 20px 20px 10px -10px #000 ;
+        }
+        /*内外阴影*/
+        .item:nth-child(10) .box-shadow{
+            box-shadow: inset 20px 20px 10px -10px #000,
+                        20px 20px 10px red;
+        }
+        /*多个内外阴影*/
+        .item:nth-child(11) .box-shadow{
+            box-shadow: inset 20px 20px 0px -10px #000,
+                        inset 20px 20px 20px -10px green,
+                        20px 20px 10px red,
+                        20px 20px 10px blue;
+        }
+        /*是否会影响盒子布局*/
+        .item:nth-child(12) .box-shadow{
+            width: 90px;
+            height: 90px;
+            margin-right: 10px;
+            background-color: red;
+
+        }
+        /*不会影响盒子的布局*/
+        .item:nth-child(12) .left{
+            box-shadow: 50px 50px 50px 20px blue;
+        }
+        /*模糊度不能为负*/
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h3>CSS3边框阴影</h3>
+    </header>
+    <div class="main">
+        <div class="item" data-brief="标准写法1">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="标准写法2">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="上面有阴影">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="下面有阴影">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="偏移量和模糊度可以叠加">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="对比第七个">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="对比第六个">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="扩展可以叠加运算">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="内阴影">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="内外阴影">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="">
+            <div class="box-shadow left"></div>
+        </div>
+        <div class="item" data-brief="">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="">
+            <div class="box-shadow"></div>
+        </div>
+        <div class="item" data-brief="">
+            <div class="box-shadow"></div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拼图</title>
+    <style>
+        /*.duo{*/
+            /*width: 623px;*/
+            /*height: 417px;*/
+            /*margin: 100px auto;*/
+            /*background:url("images/bg1.png") left top no-repeat,*/
+                       /*url("images/bg2.png") right top no-repeat,*/
+                       /*url("images/bg3.png") right bottom no-repeat,*/
+                       /*url("images/bg4.png") left bottom no-repeat,*/
+                       /*url("images/bg5.png") center center no-repeat;*/
+            /*background-color: #FFF;*/
+        /*}*/
+        .clip-img  {
+            width: 130px;
+            height: 130px;
+            margin: 200px auto;
+            position: relative;
+            background: url("images/bg.jpg") no-repeat;
+        }
+        /*.clip-img::after,*/
+        /*.clip-img::before{*/
+            /*content: '';*/
+            /*position: absolute;*/
+            /*width: 100%;*/
+            /*height: 100%;*/
+            /*background: url("images/bg.jpg") no-repeat;*/
+        /*}*/
+        /*.clip-img::after{*/
+           /*padding: 30px;*/
+           /*background-color:red;*/
+           /*box-sizing: border-box;*/
+           /*background-clip: content-box;*/
+           /*background-origin: padding-box;*/
+
+        /*}*/
+        /*.clip-img::before{*/
+            /*background-clip: content-box;*/
+            /*background-color: #FFF;*/
+
+        /*}*/
+
+        .before,.after{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            /*border: 1px solid blue;*/
+
+        }
+        .before{
+            left: -100px;
+            background: url("images/bg.jpg") no-repeat;
+            background-clip: content-box;
+            /*确定背景区域为内容部分,不包含padding和border部分*/
+            background-origin: padding-box;
+        }
+        .after{
+            /*right: -100px;*/
+
+            background-clip: content-box;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<!--<div class="duo"></div>-->
+<div class="clip-img">
+    <span class="before"></span>
+    <span class="after"></span>
+</div>
+</body>
+</html>

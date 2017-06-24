@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            margin:100px auto;
+            border: 5px dashed red;
+            background-color: yellow;
+            /*background-clip: border-box;    !*默认填充的背景区域(从边框开始)*!*/
+            background-clip: content-box;   /*修改背景区域为内容部分*/
+            /*background-clip: padding-box;       !*填充的背景区域从padding开始*!*/
+            background-image: url("images/bg.jpg");
+            /*background-image: url("images/border.png");*/
+            background-repeat: no-repeat;
+            /*background-origin: padding-box; !*默认背景区域*!*/
+            /*background-origin: border-box;  !*背景区域从border开始*!*/
+            background-origin: content-box; /*背景区域从content开始*/
+
+            background-size: 100% 100%;     /*直接铺满*/
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

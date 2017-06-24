@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            margin: 100px auto;
+            background-color: yellow;
+            border: 10px solid red;
+            box-sizing: border-box;    /*IE低版本 怪异模式 width = padding+border+内容(此处内容宽度为200-50*2-10*2 = 80)*/
+            /*box-sizing: content-box;*/    /*宽度为内容宽度(此处内容宽度为200px)*/
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

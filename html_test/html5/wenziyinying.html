@@ -38,12 +38,23 @@
 	section:nth-of-type(3) .pre-line{
 		white-space: pre-line;
 	}
-	section:nth-of-type(4) p{
+	section:nth-of-type(4) p:first-child{
 		width: 200px;
 		border: 1px solid #ccc;
 		text-overflow: ellipsis;	/*处理溢出-依赖下边两者*/
 		white-space: nowrap;	/*强制不换行*/
 		overflow: hidden;		/*超出边界隐藏*/
+	}
+	section:nth-of-type(4) p:nth-child(2){
+		width: 200px;
+		border: 1px solid #ccc;
+
+
+		/*多行文本处理,非标准属性,可用于移动端*/
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp:2;/*设置为0时高度根据文本内容自适应*/
+		-webkit-box-orient: vertical;
 	}
 
 
@@ -92,6 +103,14 @@
 		<div>
 			<p>文字溢出文字溢
 				出文综溢出微博自
+			</p>
+			<p>
+				文字真的溢出了,
+					文字真的溢出了
+						文字真的溢出了
+							文字真的溢出了
+				文字真的溢出了
+				文字真的溢出了
 			</p>
 		</div>
 	</section>

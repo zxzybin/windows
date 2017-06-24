@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bu ju xiang qing</title>
+    <style>
+        body{
+            margin: 0;
+            padding:0;
+            font-family: "Microsoft YaHei", "SimSun";
+            background-color: #F7F7F7;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrapper{
+            width: 1024px;
+            margin: 0 auto;
+        }
+        .wrapper > section{
+            min-height: 300px;
+            margin-bottom: 30px;
+            box-shadow: 1px 1px 4px #000;
+            background-color: #FFF;
+        }
+        .wrapper > header{
+            text-align: center;
+            line-height: 1;
+            padding: 20px;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+        .wrapper section >header{
+            line-height: 1;
+            padding: 10px;
+            font-size: 22px;
+            color: #333;
+            background-color: #EEE;
+        }
+        .wrapper .wrap-box{
+            padding: 20px;
+        }
+        .wrapper .brief{
+            min-height: auto;
+        }
+        .wrapper .flex-img{
+            width: 100px;
+        }
+        section ul{
+            display: flex;
+        }
+        section li{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            margin: 10px;
+            background-color: pink;
+        }
+        section:nth-child(2) ul{
+            display: flex;
+        }
+        .column ul{
+            /*justify-content: space-between; !*两端对齐*!*/
+            /*justify-content: center;        !*居中对齐*!*/
+            /*justify-content: flex-start;*/
+            /*justify-content: flex-end;*/
+            /*justify-content: inherit;*/
+            /*justify-content: space-around;*/
+
+
+            flex-direction: column;
+            /*flex-direction: column-reverse;*/
+            /*flex-direction:row; !*默认方向*!*/
+            flex-direction:row-reverse;
+        }
+        .justify-content ul{
+            /*justify-content: space-around;*/
+            /*justify-content: inherit;*/
+            /*justify-content: flex-end;*/
+            /*justify-content: flex-start;*/
+            /*justify-content: center;*/
+            justify-content: space-between;
+            /*align-items: center;*/
+            /*align-items: flex-start;*/
+            /*align-items: inherit;*/
+            /*align-items: baseline;*/
+            /*align-items: stretch;*/
+            /*align-items: flex-end;*/
+        }
+        .flex-wrap ul{
+            flex-wrap: nowrap;
+        }
+        .dl_flex li:nth-child(4){
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>CSS3-伸缩布局详解</header>
+        <section class="brief">
+            <header>flex-direction</header>
+            <div class="wrap-box">
+                <p>调整主轴方向(默认为水平方向)包括row column,row-reverse,column-reverse</p>
+            </div>
+        </section>
+        <section>
+            <header>flex-direction</header>
+            <div class="wrap-box">
+                <p>调整主轴方向（默认为水平方向）</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+        <section class="column">
+            <header>column</header>
+            <div class="wrap-box">
+                <p>调整主轴方向（默认为水平方向）</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+        <section class="justify-content">
+            <header>justify-content</header>
+            <div class="wrap-box">
+                <p>justify调整主轴方向对齐方式</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </section>
+        <section class="flex-wrap">
+            <header>flex-wrap</header>
+            <div class="wrap-box">
+                <p>换行与不换行</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+            </div>
+        </section>
+        <section class="flex121">
+            <header>flex-wrap</header>
+            <div class="wrap-box">
+                <p>换行与不换行</p>
+                <ul class="dl_flex">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
